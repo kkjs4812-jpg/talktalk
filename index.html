@@ -1031,14 +1031,6 @@ function enterPlayer(){
   document.body.classList.add("player");
   pvRenderJoin();
 }
-// 폰(터치 기기 + 좁은 화면)으로 열면 곧바로 참가자 화면으로, PC/모니터에서는 역할 선택
-const isPhone = window.matchMedia("(pointer: coarse)").matches
-  && Math.min(window.innerWidth, window.screen.width || 9999) <= 700;
-if(location.hash === "#p" || isPhone){
-  enterPlayer();
-}else{
-  document.body.classList.add("gate");
-}
 
 /* ═══════ 참가자 화면 로직 ═══════ */
 const PV_POLL = 2500;
@@ -1183,6 +1175,14 @@ function pvRenderFinal(rank){
   </div>`;
 }
 
+// 폰(터치 기기 + 좁은 화면)으로 열면 곧바로 참가자 화면으로, PC/모니터에서는 역할 선택
+const isPhone = window.matchMedia("(pointer: coarse)").matches
+  && Math.min(window.innerWidth, window.screen.width || 9999) <= 700;
+if(location.hash === "#p" || isPhone){
+  enterPlayer();
+}else{
+  document.body.classList.add("gate");
+}
 </script>
 </body>
 </html>
