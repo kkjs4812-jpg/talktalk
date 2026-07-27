@@ -501,9 +501,9 @@ body.player #playerShell{display:flex;flex-direction:column;position:fixed;inset
           <span class="q-live" id="qLive">● 응답 진행 중</span>
         </div>
         <div class="q-text" id="qText"></div>
-        <div class="q-reveal" id="qReveal">
-          <div class="mark" id="qMark">O</div>
-          <div class="exp" id="qExp"></div>
+        <div class="q-reveal" id="qReveal" style="justify-content:center">
+          <div class="exp" style="font-size:clamp(18px,1.8vw,26px)">정답은</div>
+          <div class="mark" id="qMark" style="font-size:clamp(72px,7vw,110px)">O</div>
         </div>
       </div>
       <div class="q-side">
@@ -847,7 +847,6 @@ function syncQuestionUI(){
   } else if(H.phase === "reveal"){
     live.textContent = "정답 공개"; live.className = "q-live rev";
     document.getElementById("qMark").textContent = item.a;
-    document.getElementById("qExp").textContent = item.e;
     rev.classList.add("show");
     document.getElementById("btnOpen").disabled = true;
     document.getElementById("btnReveal").disabled = true;
@@ -1226,7 +1225,7 @@ function pvRenderResult(qi){
     <div class="pv-result ${ok?'ok':'no'}">
       <div class="t">${a ? (ok ? "정답입니다! 🎉" : "아쉬워요 😢") : "응답하지 못했어요 ⏰"}</div>
       <div class="pts">+${pts}점</div>
-      <div class="exp">정답 <b>${item.a}</b><br>${esc(item.e)}</div>
+      <div class="exp" style="text-align:center">정답 <b>${item.a}</b></div>
     </div>
     <div class="pv-status">다음 문항을 기다려 주세요</div>
   </div>`;
