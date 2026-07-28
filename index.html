@@ -1029,7 +1029,7 @@ function doPick(){
   slot.className = "slot rolling";
   const wIdx = Math.floor(Math.random()*remaining.length);
   const winner = remaining[wIdx];
-  const winnerT = TARGETS[Math.random() < 0.5 ? 0 : 1]; // 정확히 반반
+  const winnerT = TARGETS[Math.random() < 0.65 ? 0 : 1]; // 대표이사님 65% / 전무님 35%
   let t = 0, delay = 55;
   (function roll(){
     nameEl.textContent = remaining[Math.floor(Math.random()*remaining.length)];
